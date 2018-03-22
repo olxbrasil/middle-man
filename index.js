@@ -76,11 +76,7 @@ function proccessMiddleware(plugins) {
 
 module.exports = {
 	generate: function init(params) {
-		var middlewareDirectory = params.directory;
-		var middlewareFiles = fs.readdirSync(middlewareDirectory);
-		var middlewareModules = middlewareFiles.map(function(filename) {
-			return require(middlewareDirectory + '/' + filename);
-		});
+		var middlewareModules = params.modules;
 		return proccessMiddleware(middlewareModules);
 	}
 };
